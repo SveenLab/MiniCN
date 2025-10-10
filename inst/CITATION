@@ -1,0 +1,14 @@
+bibentry(
+  bibtype = "Manual",
+  title = "MiniCN: Copy Number Alteration Caller for Small Targeted Panels",
+  author = person("Luís", "Nunes", email = "luis.nunes@ous-research.no", role = c("aut", "cre")),
+  year = 2025,
+  organization = "Sveen Lab, Dept. Molecular Oncology, ICR, Oslo University Hospital",
+  note = "R package version 0.1.0",
+  url = "https://github.com/SveenLab/MiniCN",
+  textVersion = paste(
+    "Nunes, L. (2025). MiniCN: Copy Number Alteration Caller for Small Targeted Panels.",
+    "R package version 0.1.0. SveenLab, Dept. Molecular Oncology, ICR, Oslo University Hospital.",
+    "URL: https://github.com/SveenLab/miniCN."
+  )
+)
