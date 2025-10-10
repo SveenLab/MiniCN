@@ -3,31 +3,31 @@ Title: Copy Number Alteration Caller for Small Targeted Panels
 Version: 0.0.0.9000
 Authors@R: 
     person("Luís", "Nunes", , "luis.nunes@ous-research.no", role = c("aut", "cre"))
-Description: MiniCN is a lightweight pipeline for gene copy-number calling on small, amplicon-based targeted panels (\< 1 Mb) using GATK-like coverage files. It supports either matched tumor–normal pairs or a pool-of-normals (PON) for coverage normalization. MiniCN was originally created for a \~20-gene panel (\~60 kb) with amplicons covering full exons, and introns for a subset of genes.
+Description: MiniCN is a lightweight pipeline for gene copy-number calling on small, amplicon-based targeted panels (\< 1 Mb) using GATK-like coverage files. It supports either matched tumor–normal pairs or a pool-of-normals (PON) for coverage normalization. MiniCN was originally created for a \~20-gene panel (\~60 kb) with amplicons covering full exons, and introns for a subset of the genes (example data included).
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Imports:
-    data.table,
-    dplyr,
-    ggplot2,
-    ggforce,
-    GenomicRanges,
-    GenomeInfoDb,
-    BSgenome,
-    Biostrings,
-    GenomicFeatures,
-    TxDb.Hsapiens.UCSC.hg38.knownGene,
-    org.Hs.eg.db,
-    AnnotationDbi,
-    S4Vectors,
-    IRanges,
-    magrittr,
-    rlang,
+    AnnotationDbi (>= 1.64.1),
+    Biostrings (>= 2.70.3),
+    BSgenome (>= 1.70.2),
+    data.table (>= 1.16.2),
+    dplyr (>= 1.1.4),
+    GenomicFeatures (>= 1.54.4),
+    GenomicRanges (>= 1.54.1),
+    GenomeInfoDb (>= 1.38.8),
+    ggforce (>= 0.4.2),
+    ggplot2 (>= 3.5.1),
     grDevices,
-    tibble
+    IRanges (>= 2.36.0),
+    magrittr (>= 2.0.3),
+    rlang (>= 1.1.4),
+    S4Vectors (>= 0.40.2),
+    tibble (>= 3.2.1),
+    TxDb.Hsapiens.UCSC.hg38.knownGene (>= 3.18.0),
+    org.Hs.eg.db (>= 3.18.0)
 Suggests:
     optparse,
     testthat (>= 3.0.0),
-    BSgenome.Hsapiens.UCSC.hg38
+    BSgenome.Hsapiens.UCSC.hg38 (>= 1.4.5)
