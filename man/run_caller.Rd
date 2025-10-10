@@ -51,7 +51,21 @@ run_caller(
 merged tsv files and per sample pdf files
 }
 \description{
-Run MiniCN copy-number caller
+\code{run_caller()} executes the full MiniCN workflow for calling gene-level
+copy-number alterations (CNAs) from amplicon-based targeted sequencing data.
+It supports either tumor–normal pairs or normalization against a pool of normals (PON),
+performs GC correction, per-amplicon normalization, and outputs gene-level
+CN summaries and diagnostic plots.
+}
+\details{
+This function runs all core MiniCN steps sequentially:
+\enumerate{
+\item Coverage normalization
+\item Baseline correction (PON or matched normal)
+\item GC bias correction
+\item Z-score based CNA calling
+\item Plot generation and result export
+}
 }
 \examples{
 # Package example files

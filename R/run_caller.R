@@ -249,6 +249,21 @@ single_sample_sigma <- function(log2R, targets) {
 
 #' Run MiniCN copy-number caller
 #'
+#'@description
+#' `run_caller()` executes the full MiniCN workflow for calling gene-level
+#' copy-number alterations (CNAs) from amplicon-based targeted sequencing data.
+#' It supports either tumor–normal pairs or normalization against a pool of normals (PON),
+#' performs GC correction, per-amplicon normalization, and outputs gene-level
+#' CN summaries and diagnostic plots.
+#'
+#' @details
+#' This function runs all core MiniCN steps sequentially:
+#' 1. Coverage normalization
+#' 2. Baseline correction (PON or matched normal)
+#' 3. GC bias correction
+#' 4. Z-score based CNA calling
+#' 5. Plot generation and result export
+#'
 #' @param sample_csv CSV with columns: Tumor Folder, Tumor File Name, Normal Folder, Normal File Name
 #' @param outdir output directory
 #' @param genome_pkg BSgenome package name, (defualt "BSgenome.Hsapiens.UCSC.hg38")
