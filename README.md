@@ -26,15 +26,18 @@ This package was constructed under **R version 4.3.2** (2023-10-31).
 library(miniCN)
 
 # Example inputs bundled with the package
-sample_csv <- system.file("extdata", "sample_sheet.csv", package = "miniCN")
-panel_file <- system.file("extdata", "panel_genes.txt", package = "miniCN")
+sample_csv <- system.file("extdata", "sample_sheet.csv", package = "MiniCN")
+panel_file <- system.file("extdata", "panel_genes.txt", package = "MiniCN")
 
 # Output directory
-outdir <- file.path(tempdir(), "miniCN_example")
+out <- "outputs"
+if (!dir.exists(out)) {
+  dir.create(out, showWarnings = FALSE, recursive = TRUE)
+}
 
 # Run copy-number calling
 if (requireNamespace("BSgenome.Hsapiens.UCSC.hg38", quietly = TRUE)) {
-  run_caller(sample_csv = sample_csv, outdir = outdir, panel_path = panel_file)
+  run_caller(sample_csv = sample_csv, outdir = out, panel_path = panel_file)
 }
 ```
 
