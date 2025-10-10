@@ -268,8 +268,8 @@ single_sample_sigma <- function(log2R, targets) {
 #'
 #' @examples
 #' # Package example files
-#' sample_csv <- system.file("extdata", "sample_sheet.csv", package = "miniCN")
-#' panel_file <- system.file("extdata", "panel_genes.txt", package = "miniCN")
+#' sample_csv <- system.file("extdata", "sample_sheet.csv", package = "MiniCN")
+#' panel_file <- system.file("extdata", "panel_genes.txt", package = "MiniCN")
 #'
 #' # Temporary output directory for examples
 #' out <- file.path(tempdir(), "miniCN_example")
