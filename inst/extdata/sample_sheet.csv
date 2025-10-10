@@ -1,4 +1,3 @@
 Tumor Folder,Tumor File Name,Normal Folder,Normal File Name
 Example_Tumors,Tumor_A,Example_Normals,Normal_A
-Example_Tumors,Tumor_B,Example_Normals,Normal_B
-Example_Tumors,Tumor_C,Example_PON_Normals,PON_median
+Example_Tumors,Tumor_B,Example_PON_Normals,PON_median
