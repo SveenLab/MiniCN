@@ -1,0 +1,33 @@
+Package: miniCN
+Title: Copy Number Alteration Caller for Small Targeted Panels
+Version: 0.0.0.9000
+Authors@R: 
+    person("Luís", "Nunes", , "luis.nunes@ous-research.no", role = c("aut", "cre"))
+Description: MiniCN is a lightweight pipeline for gene copy-number calling on small, amplicon-based targeted panels (\< 1 Mb) using GATK-like coverage files. It supports either matched tumor–normal pairs or a pool-of-normals (PON) for coverage normalization. MiniCN was originally created for a \~20-gene panel (\~60 kb) with amplicons covering full exons, and introns for a subset of genes.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports:
+    data.table,
+    dplyr,
+    ggplot2,
+    ggforce,
+    GenomicRanges,
+    GenomeInfoDb,
+    BSgenome,
+    Biostrings,
+    GenomicFeatures,
+    TxDb.Hsapiens.UCSC.hg38.knownGene,
+    org.Hs.eg.db,
+    AnnotationDbi,
+    S4Vectors,
+    IRanges,
+    magrittr,
+    rlang,
+    grDevices,
+    tibble
+Suggests:
+    optparse,
+    testthat (>= 3.0.0),
+    BSgenome.Hsapiens.UCSC.hg38

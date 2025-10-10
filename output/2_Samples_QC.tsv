@@ -1,0 +1,2 @@
+sample	median_depth_tumor	median_depth_normal	kept_targets	excluded_targets	MAD_raw	MAD_gc
+mi0105-CRCCL-SNU1197-T	82111	139607.5	397	59	0.450783992741649	0.416914214399883
