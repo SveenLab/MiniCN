@@ -112,4 +112,6 @@ Flag | Description | Default
 
 ## Citation
 
-If you use MiniCN in your research, please cite this repository.
+To cite package ‘MiniCN’ in publications use:
+
+Nunes, L. (2025). MiniCN: Copy Number Alteration Caller for Small Targeted Panels. R package version 0.1.0. SveenLab, Dept. Molecular Oncology, ICR, Oslo University Hospital. URL: https://github.com/SveenLab/miniCN.
