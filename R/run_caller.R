@@ -271,9 +271,11 @@ single_sample_sigma <- function(log2R, targets) {
 #' sample_csv <- system.file("extdata", "sample_sheet.csv", package = "MiniCN")
 #' panel_file <- system.file("extdata", "panel_genes.txt", package = "MiniCN")
 #'
-#' # Temporary output directory for examples
-#' out <- file.path(tempdir(), "miniCN_example")
-#' dir.create(out, showWarnings = FALSE, recursive = TRUE)
+#' # Output directory
+#' out <- "outputs"
+#' if (!dir.exists(out)) {
+#'   dir.create(out, showWarnings = FALSE, recursive = TRUE)
+#' }
 #'
 #' # Skip if genome package is not available on this machine
 #' if (requireNamespace("BSgenome.Hsapiens.UCSC.hg38", quietly = TRUE)) {
