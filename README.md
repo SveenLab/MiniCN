@@ -1,1 +1,115 @@
 # MiniCN
+
+## Copy Number Alteration Caller for Small Targeted Panels
+
+MiniCN is a lightweight pipeline for gene copy-number calling on small, amplicon-based targeted panels (\< 1 Mb) using GATK-like coverage files. It supports either matched tumor–normal pairs or a pool-of-normals (PON) for coverage normalization.
+
+MiniCN was originally created for a \~20-gene panel (\~60 kb) with amplicons covering full exons, and introns for a subset of the genes.
+
+## Installation
+
+The easiest way to install the R package miniCN is via the devtools package:
+
+```         
+install.packages("devtools")
+library(devtools)
+devtools::install_github("SveenLab/MiniCN")
+library(miniCN)
+```
+This package was constructed under **R version 4.3.2** (2023-10-31). 
+
+---
+
+## Quick Start
+
+```         
+library(miniCN)
+
+# Example inputs bundled with the package
+sample_csv <- system.file("extdata", "sample_sheet.csv", package = "miniCN")
+panel_file <- system.file("extdata", "panel_genes.txt", package = "miniCN")
+
+# Output directory
+outdir <- file.path(tempdir(), "miniCN_example")
+
+# Run copy-number calling
+if (requireNamespace("BSgenome.Hsapiens.UCSC.hg38", quietly = TRUE)) {
+  run_caller(sample_csv = sample_csv, outdir = outdir, panel_path = panel_file)
+}
+```
+
+---
+
+## Output files (in `outdir`):
+
+-   0_Excluded_Targets.tsv
+-   1_Amplicons_CN.tsv
+-   2_Samples_QC.tsv
+-   3_Gene_CN_Final.tsv
+-   \<sample\>\_CN_plots.pdf
+  
+---
+
+## Input formats:
+
+### Coverage files
+
+Tab-delimited with header. Requires columns (case-sensitive):
+
+Column | Description
+|:---|:---
+`target` (or `interval_id`, `interval`) | format `chr:start-end`
+`total_coverage` (or `totalcount`, `totalcounts`, `count`, `counts`, `coverage`, `totalcoverage`) | total read coverage
+
+### Sample sheet (`.csv`)
+
+Column | Description
+|:---|:---
+`Tumor Folder` | folder path with tumor coverage files
+`Tumor File` | tumor coverage file name
+`Normal Folder` | folder path with Normal coverage files
+`Normal File` | Normal coverage file name
+
+> Example:
+>
+> ```         
+> Tumor Folder,Tumor File Name,Normal Folder,Normal File Name
+> examples/,tumorA,examples/,normalA
+> ```
+
+All coverage files names should have suffix `_coverage.sample_interval_summary` .
+
+**Using a PON**: set `Normal File Name` to `PON_median` and point `Normal Folder` to a directory containing more than 2 files.
+
+> Example:
+>
+> ```         
+> Tumor Folder,Tumor File Name,Normal Folder,Normal File Name
+> examples/,tumorA,examples/PON_normals/,PON_median
+> ```
+
+### Panel genes
+
+Plain text, one HGNC symbol per line (e.g., `EGFR`).
+
+Symbols are validated via `org.Hs.eg.db` .
+
+---
+
+## Key Parameters
+
+Flag | Description | Default
+|:---|:---|:---
+`pc` | pseudocount | 0.5
+`HIGH_AMP_T` | high-amplification copy number threshold | log2(17/2) or ~3.09
+`LOW_AMP_T` | low-amplification copy number threshold | log2(7/2) or ~1.81
+`GAIN_T` | gain copy number threshold | log2(3/2) or ~0.58
+`LOSS_T` | loss copy number threshold | log2(1/2) or -1.0
+`DEEP_DEL_T` | deletion copy number threshold | -2.0
+`MIN_AMPLICONS` | minimum number of amplicons supporting respective changes | 2.0
+`MIN_GENE_Z` | minimum z-score cutoff for gains and losses | 3.0
+`MAX_Q_VALUE` | maximum q-value cutoff for gains and losses | 0.05
+
+## Citation
+
+If you use MiniCN in your research, please cite this repository.
