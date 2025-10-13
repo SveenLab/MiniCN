@@ -57,12 +57,26 @@ if (requireNamespace("BSgenome.Hsapiens.UCSC.hg38", quietly = TRUE)) {
 
 ### Coverage files
 
-Tab-delimited with header. Requires columns (case-sensitive):
+These input files are derived from the **GATK `DepthOfCoverage`** tool results. 
+All coverage files names should have suffix `_coverage.sample_interval_summary` . 
+They should be **tab-delimited text files** with a header and contain the following columns (case-sensitive):
 
 Column | Description
 |:---|:---
 `target` (or `interval_id`, `interval`) | format `chr:start-end`
 `total_coverage` (or `totalcount`, `totalcounts`, `count`, `counts`, `coverage`, `totalcoverage`) | total read coverage
+
+> *Example GATK’s `DepthOfCoverage` command:*
+>
+> ```bash
+> gatk DepthOfCoverage \
+>   -R reference.fasta \
+>   -O sample_coverage \
+>   -L targets.interval_list \
+>   -I sample.bam
+> ```
+>
+> The output file `sample_coverage.sample_interval_summary` can be directly used as MiniCN input.
 
 ### Sample sheet (`.csv`)
 
@@ -79,8 +93,6 @@ Column | Description
 > Tumor Folder,Tumor File Name,Normal Folder,Normal File Name
 > examples/,tumorA,examples/,normalA
 > ```
-
-All coverage files names should have suffix `_coverage.sample_interval_summary` .
 
 **Using a PON**: set `Normal File Name` to `PON_median` and point `Normal Folder` to a directory containing more than 2 files.
 
