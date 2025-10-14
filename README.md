@@ -2,9 +2,9 @@
 
 ## Copy Number Alteration Caller for Small Targeted Panels
 
-MiniCN is a lightweight pipeline for gene copy-number calling on small, amplicon-based targeted panels (\< 1 Mb) using GATK-like coverage files. It supports either matched tumor–normal pairs or a pool-of-normals (PON) for coverage normalization.
+MiniCN is a lightweight pipeline for DNA copy number calling on small, amplicon-based targeted sequencing panels (\< 1 Mb) using GATK-like coverage files. It supports either matched tumor–normal pairs or a pool-of-normals (PON) for coverage normalization.
 
-MiniCN was originally created for a \~20-gene panel (\~60 kb) with amplicons covering full exons, and introns for a subset of the genes.
+MiniCN was originally created for a gene panel (\~60 kb) with amplicons covering the full coding regions of \~20 genes, and introns for only a subset of the genes.
 
 ## Installation
 
@@ -57,7 +57,7 @@ if (requireNamespace("BSgenome.Hsapiens.UCSC.hg38", quietly = TRUE)) {
 
 ### Coverage files
 
-These input files are derived from the **GATK `DepthOfCoverage`** tool results. 
+These input files are derived from results of the **GATK `DepthOfCoverage`** tool. 
 All coverage files names should have suffix `_coverage.sample_interval_summary` . 
 They should be **tab-delimited text files** with a header and contain the following columns (case-sensitive):
 
