@@ -373,7 +373,7 @@ run_caller <- function(sample_csv, outdir,
     if (length(dropped)) {
       data.table::fwrite(data.table::data.table(Sample = sample_id, Target = dropped),
              file = file.path(outdir, "0_Excluded_Targets.tsv"),
-             sep = "\t")
+             sep = "\t", append = TRUE)
     }
 
     # Ratio-first normalization
