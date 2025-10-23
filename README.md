@@ -1,4 +1,4 @@
-# MiniCN
+# MiniCN_
 <img src="https://img.shields.io/badge/R%20tested-4.3.x-blue" alt="R version tested"> ![version](https://img.shields.io/badge/version-v0.1.0-blue) ![license](https://img.shields.io/badge/license-MIT-green)
 
 ## Copy Number Alteration Caller for Small Targeted Panels
